@@ -18,6 +18,9 @@ public class TestDate {
 		String sTime = Api.toString(new Date(),
 				"yyyy-MM-dd hh:mm:ss.SSS");
 		System.out.println(sTime);
+		sTime = Api.toString(new Date(),
+				"yyyy-MM-dd-hh");
+		System.out.println(sTime);
 		System.out.println(Api.getWeekDay(new Date()));
 		long aa = Api.getTimeInMillis(Api.toDate("20060112012739000",
 				"yyyyMMddhhmmssSSS"));
