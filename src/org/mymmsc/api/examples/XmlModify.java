@@ -26,7 +26,7 @@ import org.xml.sax.SAXException;
 public class XmlModify {
 
 	/**
-	 * ModitifyXml¹¹Ôìº¯Êý
+	 * ModitifyXml
 	 */
 	public XmlModify() {
 	}
@@ -46,19 +46,14 @@ public class XmlModify {
 			}
 			xp.output(xmlOut, "utf-8");
 		} catch (XPathExpressionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

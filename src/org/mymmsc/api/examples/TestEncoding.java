@@ -99,13 +99,15 @@ public class TestEncoding {
 	 * @param text
 	 * @return
 	 */
+	@SuppressWarnings("unused")
 	private static boolean Utf8codeCheck(String text) {
 		String sign = "";
 		if (text.startsWith("%e"))
 			for (int i = 0, p = 0; p != -1; i++) {
 				p = text.indexOf("%", p);
-				if (p != -1)
+				if (p != -1) {
 					p++;
+				}
 				sign += p;
 			}
 		return sign.equals("147-1");
