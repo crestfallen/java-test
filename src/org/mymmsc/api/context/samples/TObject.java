@@ -9,7 +9,7 @@ public class TObject {
 	private int status;
 	private Object message;
 	private TOrder order;
-	
+
 	public List<Bill> getBills() {
 		return bills;
 	}
@@ -42,7 +42,8 @@ public class TObject {
 	}
 
 	/**
-	 * @param order the order to set
+	 * @param order
+	 *            the order to set
 	 */
 	public void setOrder(TOrder order) {
 		this.order = order;

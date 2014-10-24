@@ -26,21 +26,23 @@ public class TestHttpJson {
 		@SuppressWarnings("unused")
 		String phone = "18612033288";
 		String type = "0";
-		long cur=System.currentTimeMillis();
-		String now=String.valueOf(cur);
-		String time= now.substring(0,10);
-		String postData = "{\"m_username\":\""+userName+"\",\"m_password\":\""+password+"\",\"m_email\":\""+email+"\",\"m_type\":\""+type+"\",\"m_register_time\":\""+time+"\"}";
+		long cur = System.currentTimeMillis();
+		String now = String.valueOf(cur);
+		String time = now.substring(0, 10);
+		String postData = "{\"m_username\":\"" + userName
+				+ "\",\"m_password\":\"" + password + "\",\"m_email\":\""
+				+ email + "\",\"m_type\":\"" + type
+				+ "\",\"m_register_time\":\"" + time + "\"}";
 		System.out.println(postData);
 		hc.addField("postdata", postData);
 		hc.addField("time", time);
-		hc.addField("sign", Api.md5(postData + time+key));
-		hRet = hc.post(null,null);
+		hc.addField("sign", Api.md5(postData + time + key));
+		hRet = hc.post(null, null);
 		System.out.println("http-status=[" + hRet.getStatus() + "], body=["
 				+ hRet.getBody() + "], message=" + hRet.getError());
 		// 服务器正常的话, 应该看到http请求的状态码以及json串
 		JsonAdapter json = JsonAdapter.parse(hRet.getBody());
-		ZDTest info = json
-				.get(ZDTest.class);
+		ZDTest info = json.get(ZDTest.class);
 		System.out.println(info);
 	}
 }

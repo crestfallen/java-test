@@ -4,7 +4,7 @@ public class Bill {
 	private String amount;
 	private String billId;
 	private Test test;
-	
+
 	public String getBillId() {
 		return billId;
 	}

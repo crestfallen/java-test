@@ -92,7 +92,8 @@ public class TestHttpClient {
 				+ hRet.getBody() + "], message=" + hRet.getError());
 		// 服务器正常的话, 应该看到http请求的状态码以及json串
 		JsonAdapter json = JsonAdapter.parse(hRet.getBody());
-		FengBagMenuMemberCardList list = json.get(FengBagMenuMemberCardList.class);
+		FengBagMenuMemberCardList list = json
+				.get(FengBagMenuMemberCardList.class);
 		System.out.println(list);
 	}
 

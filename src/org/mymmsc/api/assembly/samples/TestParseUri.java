@@ -17,10 +17,10 @@ public class TestParseUri {
 		} else {
 			sb.append("/");
 		}
-		
+
 		return sb.toString();
 	}
-	
+
 	/**
 	 * @param args
 	 */

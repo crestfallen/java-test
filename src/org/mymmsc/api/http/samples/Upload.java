@@ -23,13 +23,13 @@ public class Upload {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		String url = "http://180.169.17.89:1080/wifi-api/upload.cgi";
-		//url = "http://localhost:16080/wifi-api/upload.cgi";
+		// url = "http://localhost:16080/wifi-api/upload.cgi";
 		url = "http://a.aoqia.com/ajax/set/companyvideo";
 		HttpClient hc = new HttpClient(url, 30);
 		// HttpClient hc = new
 		// HttpClient("http://devp.ifengzi.cn:38090/role/getuserinfo", 30);
-		
-		//hc.addField("userId", 100046);
+
+		// hc.addField("userId", 100046);
 		String filename = "C:/temp/12.jpg";
 		filename = "/Users/wangfeng/temp/vip-com.mp4";
 		File file = new File(filename);
@@ -53,7 +53,7 @@ public class Upload {
 			e.printStackTrace();
 		}
 
-		//hc.addFile("content", "test", "application/octet-stream", bytenew);
+		// hc.addFile("content", "test", "application/octet-stream", bytenew);
 		hc.addFile("video", filename, "video/mp4", bytenew);
 		HttpResult hRet = hc.post(null, null);
 		System.out.println("http-status=[" + hRet.getStatus() + "], body=["

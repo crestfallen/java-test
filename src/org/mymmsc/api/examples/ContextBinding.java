@@ -23,10 +23,10 @@ public class ContextBinding {
 	public ContextBinding() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public static void main(String[] args) throws NamingException {
 		String name = "jdbc/boss";
-		String  a = "10";
+		String a = "10";
 		ApiContext.bind(name, a);
 		String b = ApiContext.lookup(name);
 		System.out.println("b = " + b);

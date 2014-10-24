@@ -18,7 +18,7 @@ import org.mymmsc.api.sql.FactoryParam;
 import org.mymmsc.api.sql.SQLApi;
 
 public class testPool {
-	
+
 	@SuppressWarnings("unused")
 	public void test1() {
 		String user = "labs";
@@ -35,9 +35,11 @@ public class testPool {
 			Connection conn1 = cf.getFreeConnection();
 			Connection conn2 = cf.getFreeConnection();
 			Connection conn3 = cf.getFreeConnection();
-			int c = SQLApi.getRow(conn1, Integer.class, "select count(*) from user");
-			int c1 = (int)c;
-			TestObj d = SQLApi.getRow(conn1, TestObj.class, "select count(*) as count from user");
+			int c = SQLApi.getRow(conn1, Integer.class,
+					"select count(*) from user");
+			int c1 = (int) c;
+			TestObj d = SQLApi.getRow(conn1, TestObj.class,
+					"select count(*) as count from user");
 			Statement stmt = conn1.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from ADMINISTRATION");
 			if (rs.next()) {
@@ -106,8 +108,8 @@ public class testPool {
 			time = System.currentTimeMillis();
 			Class.forName(param.getDriver()).newInstance();
 			for (int i = 0; i < 10; i++) {
-				conn1 = DriverManager.getConnection(param.getUrl(), param
-						.getUser(), param.getPassword());
+				conn1 = DriverManager.getConnection(param.getUrl(),
+						param.getUser(), param.getPassword());
 				Statement stmt = conn1.createStatement();
 				ResultSet rs = stmt.executeQuery("select * from sys_admin");
 				if (rs.next()) {

@@ -19,10 +19,10 @@ public class TestSearchClass {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Iterator<?> iterator = ServiceLoader.load(Api.class).iterator();  
-        while (iterator.hasNext()) {  
-            System.out.println(iterator.next());  
-        }  
+		Iterator<?> iterator = ServiceLoader.load(Api.class).iterator();
+		while (iterator.hasNext()) {
+			System.out.println(iterator.next());
+		}
 	}
 
 }

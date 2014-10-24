@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ZDTest {
 	private List<String> coupon_info_pic;
-	
+
 	public ZDTest() {
 		// TODO Auto-generated constructor stub
 	}

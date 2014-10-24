@@ -3,8 +3,6 @@
  */
 package org.mymmsc.api.asm.samples;
 
-
-
 /**
  * @author WangFeng
  * 

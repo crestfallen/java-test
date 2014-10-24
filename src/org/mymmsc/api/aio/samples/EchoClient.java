@@ -20,17 +20,16 @@ public class EchoClient {
 		try {
 			InetAddress remoteIP = InetAddress.getByName(remoteHost);
 			String msg = "hello world!";
-			
-				byte[] outputData = msg.getBytes();
-				DatagramPacket outputPacket = new DatagramPacket(outputData,
-						outputData.length, remoteIP, remotePort);
-				socket.send(outputPacket); // 给EchoServer发送数据报
 
-				DatagramPacket inputPacket = new DatagramPacket(new byte[512],
-						512);
-				socket.receive(inputPacket);
-				System.out.println(new String(inputPacket.getData(), 0,
-						inputPacket.getLength()));
+			byte[] outputData = msg.getBytes();
+			DatagramPacket outputPacket = new DatagramPacket(outputData,
+					outputData.length, remoteIP, remotePort);
+			socket.send(outputPacket); // 给EchoServer发送数据报
+
+			DatagramPacket inputPacket = new DatagramPacket(new byte[512], 512);
+			socket.receive(inputPacket);
+			System.out.println(new String(inputPacket.getData(), 0, inputPacket
+					.getLength()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {

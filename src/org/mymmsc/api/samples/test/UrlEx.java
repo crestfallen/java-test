@@ -14,7 +14,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 /**
- * URLÇëÇó²âÊÔ
+ * URLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * 
  * @author WangFeng(wangfeng@yeah.net)
  * @version 6.3.9 09/10/02
@@ -38,8 +38,8 @@ public class UrlEx {
 		// send the encoded message
 		out.println(name + "&" + email);
 		out.close();
-		BufferedReader in = new BufferedReader(new InputStreamReader(connection
-				.getInputStream()));
+		BufferedReader in = new BufferedReader(new InputStreamReader(
+				connection.getInputStream()));
 		String line;
 		while ((line = in.readLine()) != null) {
 			System.out.println(line);

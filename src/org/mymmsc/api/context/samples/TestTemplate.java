@@ -26,7 +26,7 @@ public class TestTemplate {
 	 * 
 	 */
 	public TestTemplate() {
-		// 
+		//
 	}
 
 	/**

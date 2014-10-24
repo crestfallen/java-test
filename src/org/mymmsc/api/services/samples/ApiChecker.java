@@ -5,7 +5,6 @@ package org.mymmsc.api.services.samples;
 
 import org.mymmsc.api.assembly.Api;
 
-
 /**
  * @author WangFeng
  * 

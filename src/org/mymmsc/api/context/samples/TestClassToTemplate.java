@@ -29,7 +29,8 @@ public class TestClassToTemplate {
 				System.out.println(map.size());
 			}
 			String string = "{\"order\":{\"id\":123,\"name\":\"bichao\"},\"status\":0,\"message\":\"success\",\"bills\":[{\"amount\":\"11\",\"test\":{\"amount\":\"12\",\"billId\":\"billid2\"},\"billId\":\"billid1\"},{\"amount\":\"13\",\"billId\":\"billid3\"}]}";
-			//String string = "{\"bills\":[{\"amount\":\"11\",\"test\":{\"amount\":\"12\",\"billId\":\"billid2\"},\"billId\":\"billid1\"},{\"amount\":\"13\",\"billId\":\"billid3\"}]}";
+			// String string =
+			// "{\"bills\":[{\"amount\":\"11\",\"test\":{\"amount\":\"12\",\"billId\":\"billid2\"},\"billId\":\"billid1\"},{\"amount\":\"13\",\"billId\":\"billid3\"}]}";
 			System.out.println("第1次 ===>");
 			System.out.println("       原json串: " + string);
 			// 解析JSON串, 有可能因解析失败返回null
@@ -39,11 +40,12 @@ public class TestClassToTemplate {
 				TemplateIterator ti = new TemplateIterator(tpl);
 				ti.transit(null, obj);
 				System.out.println(tpl.generateOutput());
-				
+
 				Test test = new Test();
 				test.setAmount("1");
 				test.setBillId("2");
-				System.out.println("输出bean的JSON串: "  + JsonAdapter.get(test, false));
+				System.out.println("输出bean的JSON串: "
+						+ JsonAdapter.get(test, false));
 			}
 		} catch (TemplateSyntaxException e) {
 			e.printStackTrace();

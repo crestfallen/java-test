@@ -25,7 +25,7 @@ public class XmlParserTest {
 	 * TestXerce
 	 */
 	public XmlParserTest() {
-		
+
 	}
 
 	/**
@@ -52,8 +52,8 @@ public class XmlParserTest {
 			NamedNodeMap attrList = (NamedNodeMap) node.getAttributes();
 			for (int j = 0; j < attrList.getLength(); j++) {
 				Node attNode = (Node) attrList.item(j);
-				System.out.format("%s=%s", attNode.getNodeName(), attNode
-						.getTextContent());
+				System.out.format("%s=%s", attNode.getNodeName(),
+						attNode.getTextContent());
 			}
 			System.out.println(node.getNodeValue());
 

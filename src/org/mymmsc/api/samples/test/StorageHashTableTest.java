@@ -24,9 +24,8 @@ public class StorageHashTableTest {
 	}
 
 	public void testIt() throws Exception {
-		StorageHashTable sht = new StorageHashTable(System
-				.getProperty("java.io.tmpdir")
-				+ "/mymmsc");
+		StorageHashTable sht = new StorageHashTable(
+				System.getProperty("java.io.tmpdir") + "/mymmsc");
 		sht.open("filt");
 		startClock();
 

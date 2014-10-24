@@ -33,62 +33,62 @@ import javax.net.ServerSocketFactory;
  * @author <a href="http://mina.apache.org">Apache MINA Project</a>
  */
 public class SslServerSocketFactory extends javax.net.ServerSocketFactory {
-    private static boolean sslEnabled = false;
+	private static boolean sslEnabled = false;
 
-    private static javax.net.ServerSocketFactory sslFactory = null;
+	private static javax.net.ServerSocketFactory sslFactory = null;
 
-    private static ServerSocketFactory factory = null;
+	private static ServerSocketFactory factory = null;
 
-    public SslServerSocketFactory() {
-        super();
-    }
+	public SslServerSocketFactory() {
+		super();
+	}
 
-    @Override
-    public ServerSocket createServerSocket(int port) throws IOException {
-        return new ServerSocket(port);
-    }
+	@Override
+	public ServerSocket createServerSocket(int port) throws IOException {
+		return new ServerSocket(port);
+	}
 
-    @Override
-    public ServerSocket createServerSocket(int port, int backlog)
-            throws IOException {
-        return new ServerSocket(port, backlog);
-    }
+	@Override
+	public ServerSocket createServerSocket(int port, int backlog)
+			throws IOException {
+		return new ServerSocket(port, backlog);
+	}
 
-    @Override
-    public ServerSocket createServerSocket(int port, int backlog,
-            InetAddress ifAddress) throws IOException {
-        return new ServerSocket(port, backlog, ifAddress);
-    }
+	@Override
+	public ServerSocket createServerSocket(int port, int backlog,
+			InetAddress ifAddress) throws IOException {
+		return new ServerSocket(port, backlog, ifAddress);
+	}
 
-    public static javax.net.ServerSocketFactory getServerSocketFactory()
-            throws IOException {
-        if (isSslEnabled()) {
-            if (sslFactory == null) {
-                try {
-                    sslFactory = BogusSslContextFactory.getInstance(true)
-                            .getServerSocketFactory();
-                } catch (GeneralSecurityException e) {
-                    IOException ioe = new IOException(
-                            "could not create SSL socket");
-                    ioe.initCause(e);
-                    throw ioe;
-                }
-            }
-            return sslFactory;
-        } else {
-            if (factory == null) {
-                factory = new SslServerSocketFactory();
-            }
-            return factory;
-        }
+	public static javax.net.ServerSocketFactory getServerSocketFactory()
+			throws IOException {
+		if (isSslEnabled()) {
+			if (sslFactory == null) {
+				try {
+					sslFactory = BogusSslContextFactory.getInstance(true)
+							.getServerSocketFactory();
+				} catch (GeneralSecurityException e) {
+					IOException ioe = new IOException(
+							"could not create SSL socket");
+					ioe.initCause(e);
+					throw ioe;
+				}
+			}
+			return sslFactory;
+		} else {
+			if (factory == null) {
+				factory = new SslServerSocketFactory();
+			}
+			return factory;
+		}
 
-    }
+	}
 
-    public static boolean isSslEnabled() {
-        return sslEnabled;
-    }
+	public static boolean isSslEnabled() {
+		return sslEnabled;
+	}
 
-    public static void setSslEnabled(boolean newSslEnabled) {
-        sslEnabled = newSslEnabled;
-    }
+	public static void setSslEnabled(boolean newSslEnabled) {
+		sslEnabled = newSslEnabled;
+	}
 }

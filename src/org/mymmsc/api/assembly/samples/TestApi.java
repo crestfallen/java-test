@@ -21,20 +21,22 @@ public class TestApi {
 
 	/**
 	 * @param args
-	 * @throws UnsupportedEncodingException 
-	 * @throws IOException 
-	 * @throws JsonParseException 
+	 * @throws UnsupportedEncodingException
+	 * @throws IOException
+	 * @throws JsonParseException
 	 */
 	public static void main(String[] args) throws UnsupportedEncodingException {
+		boolean isBase = Api.isBaseType(TestApi.class);
 		String a = Api.shell("cmd /c dir");
 		System.out.println("原始串: " + a);
 		System.out.println("原始串视图转化成UTF-8: " + Api.iconv(a, "gb2312", "utf-8"));
 		System.out.println("平台默认字符集: " + Charset.defaultCharset().name());
-		System.out.println("字符串使用getBytes()检测: " + Api.detectCharset(a.getBytes(), a.getBytes().length));
+		System.out.println("字符串使用getBytes()检测: "
+				+ Api.detectCharset(a.getBytes(), a.getBytes().length));
 		String charset = Api.detectCharset(a);
 		System.out.println("字符串由char转bytes后再检测: " + charset);
 		String s1 = Api.iconv(a, "utf-8", charset);
-		//byte[] b1 = a.getBytes("gb2312");
+		// byte[] b1 = a.getBytes("gb2312");
 		System.out.println("字符串转成UTF-8: " + s1);
 		System.out.println("字符串转成UTF-8: " + Api.iconv(s1, charset, "utf-8"));
 		String s = "2012-05-11 10:14:55.000";
@@ -44,7 +46,7 @@ public class TestApi {
 		}
 		String value = "1111111111111111111111111111111111111111111111111112131321313213132132123132131309.09ab";
 		value = " 09.09ab";
-		//value = "0";
+		// value = "0";
 		System.out.println("  value = " + value + ", cast:");
 		// String b = Api.dirName(value);
 		// System.out.println(b);

@@ -31,11 +31,13 @@ public class TestP3P {
 		uri = "http://sas.api.mymmsc.org:16080/wifi-api/reg.cgi";
 		hc = new HttpClient(uri, timeout);
 		Map<String, String> headers = new HashMap<String, String>();
-		headers.put("P3P", "CP=\"CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR\"");
+		headers.put(
+				"P3P",
+				"CP=\"CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR\"");
 		hRet = hc.post(headers, null);
 		System.out.println("http-status=[" + hRet.getStatus() + "], body=["
 				+ hRet.getBody() + "], message=" + hRet.getError());
-		
+
 	}
 
 }

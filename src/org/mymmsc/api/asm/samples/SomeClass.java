@@ -2,10 +2,10 @@ package org.mymmsc.api.asm.samples;
 
 public class SomeClass {
 	private String name;
-	 
-    public void foo(String name) {
-        this.setName(name);
-    }
+
+	public void foo(String name) {
+		this.setName(name);
+	}
 
 	/**
 	 * @return the name
@@ -15,7 +15,8 @@ public class SomeClass {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;

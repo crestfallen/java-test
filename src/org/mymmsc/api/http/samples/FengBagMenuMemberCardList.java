@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FengBagMenuMemberCardList {
-	private List<AreaBean> arealist=new ArrayList<AreaBean>();
+	private List<AreaBean> arealist = new ArrayList<AreaBean>();
 
-	private List<FengBagMenuMemberCardListData> datalist=new ArrayList<FengBagMenuMemberCardListData>();
+	private List<FengBagMenuMemberCardListData> datalist = new ArrayList<FengBagMenuMemberCardListData>();
+
 	public List<FengBagMenuMemberCardListData> getDatalist() {
 		return datalist;
 	}
@@ -23,5 +24,4 @@ public class FengBagMenuMemberCardList {
 		this.arealist = arealist;
 	}
 
-	 
 }

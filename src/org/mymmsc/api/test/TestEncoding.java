@@ -30,10 +30,10 @@ public class TestEncoding {
 		String s = "123";
 		s = "\u65e9\u81ea\u4e60";
 		s = "\\\\u65e9\\\\u81ea\\\\u4e60";
-		s = s.replaceAll("\\\\u","u");
+		s = s.replaceAll("\\\\u", "u");
 		System.out.println(s);
 		Base64 api = new Base64();
-		
+
 		System.out.println(api.encode(s));
 		String exp = "/[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/gi";
 		exp = "([\u4E00-\u9FA5]+)";
@@ -42,7 +42,7 @@ public class TestEncoding {
 		System.out.println(s);
 		String charset = "iso8859_1";
 		boolean b = RegExp.valid(s, exp);
-		if(b) {
+		if (b) {
 			charset = "utf-8";
 		}
 		System.out.println(charset);

@@ -15,11 +15,9 @@ public class TestDate {
 		System.out.println(Api.toString(d1));
 		java.sql.Timestamp ts = Api.getNow();
 		System.out.println(ts);
-		String sTime = Api.toString(new Date(),
-				"yyyy-MM-dd hh:mm:ss.SSS");
+		String sTime = Api.toString(new Date(), "yyyy-MM-dd hh:mm:ss.SSS");
 		System.out.println(sTime);
-		sTime = Api.toString(new Date(),
-				"yyyy-MM-dd-hh");
+		sTime = Api.toString(new Date(), "yyyy-MM-dd-hh");
 		System.out.println(sTime);
 		System.out.println(Api.getWeekDay(new Date()));
 		long aa = Api.getTimeInMillis(Api.toDate("20060112012739000",
@@ -33,8 +31,8 @@ public class TestDate {
 		System.out.println(Api.getField(Api.getFirstDayOfWeek(date.getTime()),
 				java.util.Calendar.DAY_OF_MONTH));
 		java.util.Date date1 = Api.toDate("20040201080910", "yyyyMMddhhmmss");
-		java.util.Date date2 = Api.addDate(date1, java.util.Calendar.DAY_OF_YEAR,
-				-1000);
+		java.util.Date date2 = Api.addDate(date1,
+				java.util.Calendar.DAY_OF_YEAR, -1000);
 		System.out.println(Api.getField(Api.getLastDayOfMonth(date1),
 				java.util.Calendar.SECOND));
 		System.out.println(Api.toString(date2, "yyyy-MM-dd hh:mm:ss.SSS"));

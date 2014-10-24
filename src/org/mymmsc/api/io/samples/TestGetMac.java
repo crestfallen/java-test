@@ -7,6 +7,7 @@ import java.util.Enumeration;
 
 /**
  * 获取主机mac地址
+ * 
  * @author WangFeng
  *
  */
@@ -29,7 +30,7 @@ public class TestGetMac {
 						// 显示当前网络接口设备显示名称
 						System.out.println("网卡显示名称: " + face.getDisplayName());
 						// 显示当前设备内部名称
-						//System.out.println("网卡设备名称: " + face.getName());
+						// System.out.println("网卡设备名称: " + face.getName());
 						Enumeration<InetAddress> ips = face.getInetAddresses();
 						while (ips.hasMoreElements()) {
 							InetAddress id = ips.nextElement();
