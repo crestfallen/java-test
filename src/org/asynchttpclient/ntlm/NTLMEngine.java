@@ -77,8 +77,10 @@ public final class NTLMEngine {
     private static final int FLAG_REQUEST_SEAL = 0x00000020; // Request key exchange for message confidentiality in NEGOTIATE message.  MUST be used in conjunction with 56BIT.
     private static final int FLAG_REQUEST_LAN_MANAGER_KEY = 0x00000080; // Request Lan Manager key instead of user session key
     private static final int FLAG_REQUEST_NTLMv1 = 0x00000200; // Request NTLMv1 security.  MUST be set in NEGOTIATE and CHALLENGE both
-    private static final int FLAG_DOMAIN_PRESENT = 0x00001000; // Domain is present in message
-    private static final int FLAG_WORKSTATION_PRESENT = 0x00002000; // Workstation is present in message
+    @SuppressWarnings("unused")
+	private static final int FLAG_DOMAIN_PRESENT = 0x00001000; // Domain is present in message
+    @SuppressWarnings("unused")
+	private static final int FLAG_WORKSTATION_PRESENT = 0x00002000; // Workstation is present in message
     private static final int FLAG_REQUEST_ALWAYS_SIGN = 0x00008000; // Requests a signature block on all messages.  Overridden by REQUEST_SIGN and REQUEST_SEAL.
     private static final int FLAG_REQUEST_NTLM2_SESSION = 0x00080000; // From server in challenge, requesting NTLM2 session security
     private static final int FLAG_REQUEST_VERSION = 0x02000000; // Request protocol version
@@ -212,7 +214,8 @@ public final class NTLMEngine {
         protected final String user;
         protected final String password;
         protected final byte[] challenge;
-        protected final String target;
+        @SuppressWarnings("unused")
+		protected final String target;
         protected final byte[] targetInformation;
 
         // Information we can generate but may be passed in (for testing)
