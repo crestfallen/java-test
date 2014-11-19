@@ -39,6 +39,12 @@ public class TestDspForGoogle {
 			bytes = Base64.decode(str);
 			req = RtbG.BidRequest.parseFrom(bytes);
 			System.out.println("proto buf[" + req + "]");
+			bytes = new byte[2];
+			bytes[0] = 0x20;
+			bytes[1] = 0x01;
+			
+			RtbG.BidResponse resp = RtbG.BidResponse.parseFrom(bytes);
+			System.out.println("proto buf[" + resp + "]");
 		} catch (InvalidProtocolBufferException e) {
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
