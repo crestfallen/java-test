@@ -21,9 +21,10 @@ public class testPool {
 
 	@SuppressWarnings("unused")
 	public void test1() {
-		String user = "labs";
-		String password = "123456";
+		String user = "hl_dsp_stat";
+		String password = "09h2i3r90h8ioaiuu";
 		String url = "jdbc:mysql://192.168.1.200:18036/mysql?&useUnicode=true&characterEncoding=gbk&autoReconnect=true&failOverReadOnly=false";
+		url = "jdbc:mysql://db1.dsp.haolan.com:3306/hl_commom?&useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false";
 		String driver = "com.mysql.jdbc.Driver";
 
 		ConnectionParam param = new ConnectionParam(driver, url, user, password);

@@ -6,8 +6,9 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/msf-iphone-send"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/slf4j"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/JDK1.6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/JDK1.7"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/protobuf"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/http-async"/>
+	<classpathentry kind="lib" path="/Users/wangfeng/runtime/apps/resin-pro-4.0.38/lib/mysql-connector-java-5.1.26-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
