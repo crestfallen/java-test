@@ -17,6 +17,7 @@ public class TestHttpJson {
 		int timeout = 30;
 		String uri = "http://localhost:8080/apps";
 		uri = "http://svn.congzheli.com/api/reg";
+		uri = "http://119.254.111.25:8080/rrc/debtor/getCollectionProgressList.cgi?debug=1";
 		String key = "UserTc7ib084US";
 		HttpResult hRet = null;
 		HttpClient hc = new HttpClient(uri, timeout);
