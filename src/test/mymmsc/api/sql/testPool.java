@@ -12,10 +12,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import org.mymmsc.api.assembly.Api;
-import org.mymmsc.api.sql.ConnectionFactory;
-import org.mymmsc.api.sql.ConnectionParam;
-import org.mymmsc.api.sql.FactoryParam;
-import org.mymmsc.api.sql.SQLApi;
+import org.mymmsc.sql.SQLApi;
+import org.mymmsc.sql.dbcp2.ConnectionFactory;
+import org.mymmsc.sql.dbcp2.ConnectionParam;
+import org.mymmsc.sql.dbcp2.FactoryParam;
 
 public class testPool {
 

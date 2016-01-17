@@ -9,7 +9,7 @@ package test.mymmsc.api.assembly;
 import javax.xml.xpath.XPathExpressionException;
 
 import org.mymmsc.api.assembly.XmlParser;
-import org.mymmsc.api.sql.JdbcParams;
+import org.mymmsc.sql.dbcp2.JdbcParams;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
