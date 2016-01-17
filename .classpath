@@ -10,5 +10,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/protobuf"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/http-async"/>
 	<classpathentry kind="lib" path="/Users/wangfeng/runtime/apps/resin-pro-4.0.38/lib/mysql-connector-java-5.1.26-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/wangfeng/runtime/lib/guava-16.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

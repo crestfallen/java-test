@@ -1,7 +1,7 @@
 /**
  * 
  */
-package test.mymmsc.api.sql;
+package test.mymmsc.sql;
 
 /**
  * @author wangfeng

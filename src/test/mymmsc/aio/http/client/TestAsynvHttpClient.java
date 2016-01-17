@@ -1,7 +1,7 @@
 /**
  * 
  */
-package test.mymmsc.api.aio;
+package test.mymmsc.aio.http.client;
 
 import java.io.ByteArrayOutputStream;
 import java.util.concurrent.ExecutionException;

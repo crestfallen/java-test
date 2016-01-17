@@ -4,7 +4,7 @@
  * Copyright 2000-2010 MyMMSC Software Foundation (MSF), Inc. All rights reserved.
  * MyMMSC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
-package test.mymmsc.api.sql;
+package test.mymmsc.sql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

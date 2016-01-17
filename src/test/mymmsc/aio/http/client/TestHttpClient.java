@@ -1,4 +1,4 @@
-package test.mymmsc.api.aio;
+package test.mymmsc.aio.http.client;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -11,6 +11,8 @@ import org.mymmsc.aio.http.client.Response;
 import org.mymmsc.aio.http.client.AsyncHttpClient.BoundRequestBuilder;
 import org.mymmsc.aio.http.client.AsyncHttpClientConfig.Builder;
 import org.mymmsc.aio.http.client.providers.jdk.JDKAsyncHttpProvider;
+
+import test.mymmsc.api.aio.EncodingUtil;
 
 public class TestHttpClient {
 
