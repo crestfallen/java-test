@@ -6,7 +6,7 @@ import org.mymmsc.api.assembly.BeanAlias;
 public class TObject {
 	private List<Bill> bills;
 	@BeanAlias("errorid,errno")
-	private int status;
+	private long status;
 	private Object message;
 	private TOrder order;
 
@@ -18,11 +18,11 @@ public class TObject {
 		this.bills = bills;
 	}
 
-	public int getStatus() {
+	public long getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(long status) {
 		this.status = status;
 	}
 

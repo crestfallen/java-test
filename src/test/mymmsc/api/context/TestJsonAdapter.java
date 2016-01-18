@@ -37,7 +37,7 @@ public class TestJsonAdapter {
 			System.out.println("还原：" + string);
 			System.out.println("还原：" + JsonAdapter.get(data1));
 		}
-		string = "{\"order\":{\"id\":\"-1\",\"name\":\"bichao\"},\"errNo\":900,\"message\":\"success\",\"bills\":[{\"amount\":\"11\",\"test\":{\"amount\":\"12\",\"billId\":\"billid2\"},\"billId\":\"billid1\"},{\"amount\":\"13\",\"billId\":\"billid3\"}]}";
+		string = "{\"order\":{\"id\":\"-1\",\"name\":\"bichao\"},\"errNo\":"+Long.MAX_VALUE+",\"message\":\"success\",\"bills\":[{\"amount\":\"11\",\"test\":{\"amount\":\"12\",\"billId\":\"billid2\"},\"billId\":\"billid1\"},{\"amount\":\"13\",\"billId\":\"billid3\"}]}";
 		// string =
 		// "{\"order\":{\"id\":123,\"name\":\"bichao\"},\"errNo\":900,\"bills\":[{\"amount\":\"11\",\"test\":{\"amount\":\"12\",\"billId\":\"billid2\"},\"billId\":\"billid1\"},{\"amount\":\"13\",\"billId\":\"billid3\"}]}";
 		// String string =
