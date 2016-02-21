@@ -27,7 +27,7 @@ import java.security.GeneralSecurityException;
 import javax.net.ServerSocketFactory;
 
 /**
- * Simple Server Socket factory to create sockets with or without SSL enabled.
+ * Simple Server AioContext factory to create sockets with or without SSL enabled.
  * If SSL enabled a "bougus" SSL Context is used (suitable for test purposes)
  *
  * @author <a href="http://mina.apache.org">Apache MINA Project</a>
