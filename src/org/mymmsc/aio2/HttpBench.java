@@ -139,7 +139,7 @@ public class HttpBench extends Asio<HttpContext>{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		} else if(number <= requests + good + bad) {
+		} else if(number <= good + bad) {
 			done = false;
 		}
 	}
