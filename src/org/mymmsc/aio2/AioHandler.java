@@ -16,7 +16,7 @@ public abstract interface AioHandler {
 	//public abstract void onAccepted(SocketChannel sc);
 	public abstract void handleConnected(SocketChannel sc);
 	public abstract void handleClosed(SocketChannel sc);
-	//public abstract void onError(SocketChannel sc);
+	public abstract void handleError(SocketChannel sc);
 	public abstract void handleRead(SocketChannel sc);
 	//public abstract void onWrite(SocketChannel sc);
 	public abstract void handleTimeout(SocketChannel sc);

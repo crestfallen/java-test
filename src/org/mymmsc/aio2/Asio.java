@@ -1,6 +1,8 @@
 package org.mymmsc.aio2;
 
+import java.io.Closeable;
 import java.io.IOException;
+import java.net.ConnectException;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.channels.SelectionKey;
@@ -16,7 +18,7 @@ import java.util.Iterator;
  * @author wangfeng
  * @date 2016年1月9日 下午5:10:39
  */
-public abstract class Asio<T extends AioContext> implements AioHandler, CompletionHandler<T>{
+public abstract class Asio<T extends AioContext> implements AioHandler, Closeable, CompletionHandler<T>{
 	public final static int AE_ACCEPT = SelectionKey.OP_ACCEPT;
 	public final static int AE_CONNECT = SelectionKey.OP_CONNECT;
 	public final static int AE_READ = SelectionKey.OP_READ;
@@ -48,6 +50,7 @@ public abstract class Asio<T extends AioContext> implements AioHandler, Completi
 		return selector;
 	}
 
+	@Override
 	public void close() {
 		try {
 			selector.close();
@@ -79,6 +82,53 @@ public abstract class Asio<T extends AioContext> implements AioHandler, Completi
 		return contextFor(sk);
 	}
 	
+	/**
+	 * 关闭网络通道
+	 * @param sc
+	 */
+	protected void closeChannel(SocketChannel sc) {
+		try {
+			SelectionKey key = keyFor(sc);
+			if (key != null) {
+				key.cancel();
+			}
+			sc.close();			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			//
+		}
+	}
+	
+	/**
+	 * channel关闭处理
+	 * @param sc
+	 */
+	@Override
+	public void handleClosed(SocketChannel sc) {
+		T context = contextFor(sc);
+		onClosed(context);
+		closeChannel(sc);
+	}
+	
+	@Override
+	public void handleError(SocketChannel sc) {
+		T context = contextFor(sc);
+		onError(context);
+		handleClosed(sc);
+	}
+	
+	/**
+	 * 超时处理, 随后调用关闭channel方法
+	 * @param sc
+	 */
+	@Override
+	public void handleTimeout(SocketChannel sc) {
+		System.out.print("|");
+		onTimeout(contextFor(sc));
+		handleClosed(sc);
+	}
+	
 	@Override
 	public void handleConnected(SocketChannel sc) {
 		SelectionKey sk = keyFor(sc);
@@ -93,41 +143,12 @@ public abstract class Asio<T extends AioContext> implements AioHandler, Completi
 			} else {
 				//channel.close();
 			}
-		} catch (IOException e) {
-			//e.printStackTrace();
+		} catch (ConnectException e) {
+			// java.net.ConnectException: Operation timed out
 			handleTimeout(sc);
-		}
-	}
-	
-	/**
-	 * channel关闭处理
-	 * @param sc
-	 */
-	@Override
-	public void handleClosed(SocketChannel sc) {
-		try {
-			SelectionKey key = keyFor(sc);
-			if (key != null) {
-				key.cancel();
-			}
-			sc.close();
-			onClosed(contextFor(key));
 		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			//
+			handleError(sc);
 		}
-	}
-	
-	/**
-	 * 超时处理, 随后调用关闭channel方法
-	 * @param sc
-	 */
-	@Override
-	public void handleTimeout(SocketChannel sc) {
-		System.out.print("|");
-		onTimeout(contextFor(sc));
-		handleClosed(sc);
 	}
 	
 	/**
@@ -152,7 +173,23 @@ public abstract class Asio<T extends AioContext> implements AioHandler, Completi
 		    	onRead(ctx);
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			handleError(sc);
+		}
+	}
+	
+	/**
+	 * 检测所有在册的通道超时情况, 并处理
+	 */
+	private void checkTimeout() {
+		System.out.print(".");
+		Iterator<SelectionKey> it = selector.keys().iterator();
+		while (it.hasNext()) {
+			SelectionKey sk = (SelectionKey) it.next();
+			SocketChannel sc = (SocketChannel) sk.channel();
+			T context = contextFor(sk);
+			if(context.isTimeout()) {
+				handleTimeout(sc);
+			}
 		}
 	}
 	
@@ -171,16 +208,7 @@ public abstract class Asio<T extends AioContext> implements AioHandler, Completi
 				// 超时检测
 				num = selector.select(1000);
 				if (num < 1) {
-					System.out.print(".");
-					Iterator<SelectionKey> it = selector.keys().iterator();
-					while (it.hasNext()) {
-						SelectionKey sk = (SelectionKey) it.next();
-						//it.remove();
-						AioContext context = (AioContext)sk.attachment();
-						if(context.isTimeout()) {
-							handleTimeout((SocketChannel) sk.channel());
-						}
-					}
+					checkTimeout();
 				} else {
 					// 遍历每个有可用IO操作Channel对应的SelectionKey
 					Iterator<SelectionKey> it = selector.selectedKeys().iterator();
