@@ -18,8 +18,10 @@ import java.nio.channels.SocketChannel;
  */
 public class HttpBench extends Asio<HttpContext>{
 	//private String host = "100.100.1.1";
-	private String host = "www.baidu.com";
-	private int port = 80;
+	//private String host = "www.baidu.com";
+	private String host = "100.73.17.3";
+
+	private int port = 17080;
 	private String path = "/";
 	@SuppressWarnings("unused")
 	private String postdata = "";
@@ -28,9 +30,9 @@ public class HttpBench extends Asio<HttpContext>{
 	private int readTimeout = 10 * 1000;
 	
 	/** 并发数 */
-	private int concurrency = 10;
+	private int concurrency = 100;
 	/** 总请求数, -1为无限制 */
-	private int number = 10;
+	private int number = 10000;
 	
 	private int good = 0;
 	private int bad = 0;
@@ -202,8 +204,10 @@ public class HttpBench extends Asio<HttpContext>{
 	public static void main(String[] args) {
 		HttpBench hb = null;
 		try {
+			long tm = System.currentTimeMillis();
 			hb = new HttpBench();
 			hb.start();
+			System.out.println("\nuse " + (System.currentTimeMillis() - tm) + "ms");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

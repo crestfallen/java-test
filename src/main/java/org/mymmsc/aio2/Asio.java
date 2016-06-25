@@ -61,7 +61,7 @@ public abstract class Asio<T extends AioContext> implements AioHandler, Closeabl
 	
 	/**
 	 * 更新计时
-	 * @param sc
+	 * @param context
 	 */
 	private void updateTime(T context) {
 		context.setStartTime(System.currentTimeMillis());
