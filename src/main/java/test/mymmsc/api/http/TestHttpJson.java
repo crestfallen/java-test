@@ -8,6 +8,9 @@ import org.mymmsc.api.context.JsonAdapter;
 import org.mymmsc.api.io.HttpClient;
 import org.mymmsc.api.io.HttpResult;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author wangfeng
  * 
@@ -15,30 +18,19 @@ import org.mymmsc.api.io.HttpResult;
 public class TestHttpJson {
 	public static void main(String argv[]) {
 		int timeout = 30;
-		String uri = "http://localhost:8080/apps";
-		uri = "http://svn.congzheli.com/api/reg";
-		uri = "http://119.254.111.25:8080/rrc/debtor/getCollectionProgressList.cgi?debug=1";
-		String key = "UserTc7ib084US";
+		String host = "100.66.165.86:8080";
+		String uri = "http://" + host + "/dsmp";
+		uri += "/hideCollectRecords.cgi";
+
+		String userId = "rrc";
+		String ts = Api.toString(System.currentTimeMillis());
+		Map<String, String> header = new HashMap<>();
+		header.put("DSMP-CTRL", uri);
 		HttpResult hRet = null;
 		HttpClient hc = new HttpClient(uri, timeout);
-		String userName = "labs";
-		String email = "89009@qq.com";
-		String password = "123456";
-		@SuppressWarnings("unused")
-		String phone = "18612033288";
-		String type = "0";
-		long cur = System.currentTimeMillis();
-		String now = String.valueOf(cur);
-		String time = now.substring(0, 10);
-		String postData = "{\"m_username\":\"" + userName
-				+ "\",\"m_password\":\"" + password + "\",\"m_email\":\""
-				+ email + "\",\"m_type\":\"" + type
-				+ "\",\"m_register_time\":\"" + time + "\"}";
-		System.out.println(postData);
-		hc.addField("postdata", postData);
-		hc.addField("time", time);
-		hc.addField("sign", Api.md5(postData + time + key));
-		hRet = hc.post(null, null);
+		hc.addField("ts", ts);
+		hc.addField("token", Api.md5(uri + "com.jiedaibao.dsmp"+ts));
+		hRet = hc.post(header, null);
 		System.out.println("http-status=[" + hRet.getStatus() + "], body=["
 				+ hRet.getBody() + "], message=" + hRet.getError());
 		// 服务器正常的话, 应该看到http请求的状态码以及json串
