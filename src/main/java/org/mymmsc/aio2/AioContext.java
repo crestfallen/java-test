@@ -23,6 +23,7 @@ public abstract class AioContext{
 	private int m_timeout = 0;
 	private long m_startTime = 0;
 	private CharBuffer m_buffer = null;
+	public int length = 0;
 
 	public AioContext(SocketChannel channel, int timeout) throws IOException {
 		this.m_channel = channel;
@@ -49,6 +50,14 @@ public abstract class AioContext{
 	public int add(CharBuffer buf) {
 		if (buf != null) {
 			m_buffer.put(buf);
+		}
+		return m_buffer.position();
+	}
+
+	public int add(CharBuffer buf, int len) {
+		if (buf != null) {
+			m_buffer.put(buf.array(), 0, len);
+			length += len;
 		}
 		return m_buffer.position();
 	}

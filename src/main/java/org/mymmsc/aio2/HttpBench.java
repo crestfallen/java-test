@@ -1,38 +1,42 @@
 package org.mymmsc.aio2;
 
+import org.mymmsc.api.assembly.Api;
+
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.InetSocketAddress;
 import java.net.StandardSocketOptions;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.SocketChannel;
+import java.util.Arrays;
 
 /**
  * HTTP 批量请求
  * 
  * @author wangfeng
- * @param <E>
- * @param <T>
  * @date 2016年1月10日 上午7:57:42
  */
 public class HttpBench extends Asio<HttpContext>{
+	// http://100.73.17.2/dsmp/api/v2/collection/collectRecord.cgi
 	//private String host = "100.100.1.1";
 	//private String host = "www.baidu.com";
-	private String host = "100.73.17.3";
+	private final static String UTF8 = "utf-8";
+	private String host = "100.73.17.2";
 
-	private int port = 17080;
-	private String path = "/";
+	private int port = 80;
+	private String path = "/dsmp/api/v2/collection/collectRecord.cgi";
 	@SuppressWarnings("unused")
-	private String postdata = "";
+	private String postdata = "memberId=12345678901";
 	private int postlen = 0;
-	private int connectTimeout = 10 * 1000;
-	private int readTimeout = 10 * 1000;
+	private int connectTimeout = 30 * 1000;
+	private int readTimeout = 30 * 1000;
 	
 	/** 并发数 */
 	private int concurrency = 100;
 	/** 总请求数, -1为无限制 */
-	private int number = 10000;
+	private int number = 1000;
 	
 	private int good = 0;
 	private int bad = 0;
@@ -66,9 +70,16 @@ public class HttpBench extends Asio<HttpContext>{
 		hdrs += "Accept: */*\r\n";
 		// 已连接server端, 超时改用读写超时参数
 		context.setTimeout(readTimeout);
-		
+
+		if(!Api.isEmpty(postdata)) {
+			postdata = postdata.trim();
+			postlen = postdata.length();
+		}
+
 		if(postlen <= 0) {
 			posting = 0;
+		} else {
+			posting = 1;
 		}
 		/* setup request */
 	    if (posting <= 0) {
@@ -83,12 +94,12 @@ public class HttpBench extends Asio<HttpContext>{
 	            keepalive ? "Connection: Keep-Alive\r\n" : "",
 	            cookie, auth,
 	            postlen,
-	            hdrs);
+	            hdrs, postdata);
 	    }
 	    try {
 	    	SocketChannel sc = null;
 	    	sc = context.getChannel();
-			sc.write(ByteBuffer.wrap(request.getBytes()));
+			sc.write(ByteBuffer.wrap(request.getBytes(UTF8)));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -103,7 +114,7 @@ public class HttpBench extends Asio<HttpContext>{
 	@Override
 	public void onError(HttpContext context) {
 		bad ++;
-		good --;
+		//good --;
 	}
 	
 	@Override
@@ -150,7 +161,7 @@ public class HttpBench extends Asio<HttpContext>{
 	public void onTimeout(HttpContext context) {
 		// 超时后, 失败请求数+1
 		bad++;
-		good --;
+		//good --;
 	}
 
 	@Override
@@ -176,6 +187,9 @@ public class HttpBench extends Asio<HttpContext>{
 					// header域结束, 下面是body
 					System.out.println("Body start...");
 					context.hasHeader = true;
+					String cl = context.getHeader("Content-Length");
+					int len = Api.valueOf(int.class, cl);
+					context.setContentLength(len);
 					break;
 				} else {
 					// header域
@@ -191,11 +205,27 @@ public class HttpBench extends Asio<HttpContext>{
 				line.append(ch);
 				break;
 			}
+			pos++;
 		}
+
 		buffer.compact();
-		
-		//String response = new String(buffer.array());
-		//System.out.println(response);
+
+		char[] ac = Arrays.copyOfRange(buffer.array(), 0 , buffer.position());
+		String response = new String(ac);
+		System.out.println(response);
+
+		int cl = buffer.position();
+		try {
+			cl = response.getBytes("UTF-8").length;
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+
+		if(cl >= context.getContentLength()) {
+			// 数据处理完毕
+			onClosed(context);
+		}
 	}
 	
 	/**

@@ -15,7 +15,7 @@ public class HttpContext extends AioContext {
 	private int status = 900;
 	/** 接收到字节数 */
 	private int recviced = 0;
-	private int length = 0;
+	private int contentLength = 0;
 	private int readpos = 0;
 	
 	/** 是否已经完整的获取了HTTP Header域 */
@@ -36,6 +36,7 @@ public class HttpContext extends AioContext {
 		} else if (headerCount >= headers.length) {
             headers = Arrays.copyOf(headers, headers.length + 1);
         }
+        System.out.println(header);
         headers[headerCount++] = header;
     }
 	
@@ -43,7 +44,7 @@ public class HttpContext extends AioContext {
         int keyLength = key.length();
         for (int i = 1; i < headerCount; i++) {
             if (headers[i].regionMatches(true, 0, key, 0, keyLength)) {
-                return headers[i].substring(keyLength);
+                return headers[i].substring(keyLength+1);
             }
         }
         return null;
@@ -57,8 +58,8 @@ public class HttpContext extends AioContext {
 		return recviced;
 	}
 
-	public int getLength() {
-		return length;
+	public int getContentLength() {
+		return contentLength;
 	}
 
 	public int getReadpos() {
@@ -73,8 +74,8 @@ public class HttpContext extends AioContext {
 		this.recviced = recviced;
 	}
 
-	public void setLength(int length) {
-		this.length = length;
+	public void setContentLength(int contentLength) {
+		this.contentLength = contentLength;
 	}
 
 	public void setReadpos(int readpos) {
