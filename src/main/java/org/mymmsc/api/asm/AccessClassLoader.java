@@ -41,10 +41,12 @@ class AccessClassLoader extends ClassLoader {
                                                         boolean resolve) throws ClassNotFoundException {
         // These classes come from the classloader that loaded
         // AccessClassLoader.
-        if (name.equals(FieldAccess.class.getName()))
+        if (name.equals(FieldAccess.class.getName())) {
             return FieldAccess.class;
-        if (name.equals(MethodAccess.class.getName()))
+        }
+        if (name.equals(MethodAccess.class.getName())) {
             return MethodAccess.class;
+        }
         if (name.equals(ConstructorAccess.class.getName())) {
             return ConstructorAccess.class;
         }
