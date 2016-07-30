@@ -25,7 +25,7 @@ public class XmlParserTest {
      * TestXerce
      */
     public XmlParserTest() {
-
+        //
     }
 
     /**
