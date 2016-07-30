@@ -25,5 +25,4 @@ public class TestApi extends AbstractApi implements InterfaceApi {
         System.out.println("Start TestApi:");
         System.out.println(TestApi.class.getClassLoader());
     }
-
 }
