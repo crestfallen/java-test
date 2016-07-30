@@ -13,4 +13,5 @@ public interface InterfaceMinHeap<T> {
     public int getIndex();
 
     public void setIndex(int i);
+
 }
