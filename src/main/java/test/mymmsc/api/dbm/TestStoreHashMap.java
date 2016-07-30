@@ -25,7 +25,6 @@ public class TestStoreHashMap {
      * @param args
      */
     public static void main(String[] args) {
-
         try {
             StorageHashTable shm = new StorageHashTable(null);
             boolean bRet = shm.open("sso");
