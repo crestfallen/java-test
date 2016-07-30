@@ -45,7 +45,6 @@ public class ApiChecker extends Thread {
                     main.notifyReLoad();
                 } else {
                     Thread.sleep(1000 * 50);
-
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();
