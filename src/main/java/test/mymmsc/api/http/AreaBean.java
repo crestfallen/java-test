@@ -19,5 +19,4 @@ public class AreaBean {
     public void setAreaname(String areaname) {
         this.areaname = areaname;
     }
-
 }
