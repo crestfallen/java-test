@@ -142,4 +142,5 @@ class Context {
      * The stack values of the latest stack map frame that has been parsed.
      */
     Object[] stack;
+
 }
