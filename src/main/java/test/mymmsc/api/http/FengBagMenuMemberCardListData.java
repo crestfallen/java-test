@@ -1,6 +1,7 @@
 package test.mymmsc.api.http;
 
 public class FengBagMenuMemberCardListData {
+
     private String id;
     private String name;
     private String typeid;

@@ -1,6 +1,7 @@
 package test.mymmsc.api.context;
 
 public class Response<T> {
+
     private int status = 0;
     private String message = null;
     private T data = null;

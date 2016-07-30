@@ -7,6 +7,7 @@
 package org.mymmsc.aio2.test;
 
 public interface InterfaceMinHeap<T> {
+
     public long compareTo(T o);
 
     public int getIndex();

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import static com.sun.xml.internal.ws.org.objectweb.asm.Opcodes.*;
 
 public abstract class FieldAccess {
+
     private String[] fieldNames;
 
     static public FieldAccess get(Class<?> type) {

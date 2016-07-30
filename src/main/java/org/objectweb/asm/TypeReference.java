@@ -432,4 +432,5 @@ public class TypeReference {
     public int getValue() {
         return value;
     }
+
 }

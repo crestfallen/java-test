@@ -21,6 +21,7 @@ public class TestApi extends AbstractApi implements InterfaceApi {
 
     @Override
     public void start() {
+
         System.out.println("Start TestApi:");
         System.out.println(TestApi.class.getClassLoader());
     }

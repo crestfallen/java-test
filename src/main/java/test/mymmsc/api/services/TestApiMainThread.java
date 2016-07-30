@@ -10,6 +10,7 @@ import org.mymmsc.api.services.InterfaceApi;
  * @author WangFeng
  */
 public class TestApiMainThread {
+
     private InterfaceApi service = null;
 
     /**

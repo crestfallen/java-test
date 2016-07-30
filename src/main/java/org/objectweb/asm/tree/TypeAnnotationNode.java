@@ -89,4 +89,5 @@ public class TypeAnnotationNode extends AnnotationNode {
         this.typeRef = typeRef;
         this.typePath = typePath;
     }
+
 }

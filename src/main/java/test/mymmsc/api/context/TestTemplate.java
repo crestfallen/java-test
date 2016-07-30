@@ -19,6 +19,7 @@ import java.io.IOException;
  * @since 6.3.9
  */
 public class TestTemplate {
+
     private static final String templateFileName = "D:/temp/MiniTemplator_java/Sample2_template.htm";
     private static final String outputFileName = "D:/temp/MiniTemplator_java/Sample2_out.htm";
 

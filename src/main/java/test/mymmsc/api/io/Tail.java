@@ -23,6 +23,7 @@ import java.io.File;
  * following: it is somewhat equivalent to the unix command "tail -f"
  */
 public class Tail implements LogFileTailerListener {
+
     /**
      * The log file tailer
      */

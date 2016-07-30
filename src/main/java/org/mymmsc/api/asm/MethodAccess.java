@@ -10,6 +10,7 @@ import java.util.Arrays;
 import static com.sun.xml.internal.ws.org.objectweb.asm.Opcodes.*;
 
 public abstract class MethodAccess {
+
     private String[] methodNames;
     @SuppressWarnings("rawtypes")
     private Class[][] parameterTypes;

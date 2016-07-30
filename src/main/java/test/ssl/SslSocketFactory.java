@@ -33,6 +33,7 @@ import java.security.GeneralSecurityException;
  * @author <a href="http://mina.apache.org">Apache MINA Project</a>
  */
 public class SslSocketFactory extends SocketFactory {
+
     private static boolean sslEnabled = false;
 
     private static javax.net.ssl.SSLSocketFactory sslFactory = null;
