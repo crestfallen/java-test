@@ -30,7 +30,6 @@ public class testPool {
      * @return 字符串组
      */
     public static List<String> parseCsv0(String string, Object... args) {
-
         boolean debug = false;
         List<String> lRet = null;
         if (args != null && args.length > 0) {
