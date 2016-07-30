@@ -136,5 +136,4 @@ public class BogusSslContextFactory {
         context.init(null, BogusTrustManagerFactory.X509_MANAGERS, null);
         return context;
     }
-
 }
