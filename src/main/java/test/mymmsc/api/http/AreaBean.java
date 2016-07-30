@@ -1,6 +1,7 @@
 package test.mymmsc.api.http;
 
 public class AreaBean {
+
     private String areaid;
     private String areaname;
 
