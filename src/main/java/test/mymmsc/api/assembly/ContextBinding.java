@@ -25,6 +25,7 @@ public class ContextBinding {
     }
 
     public static void main(String[] args) throws NamingException {
+
         String name = "jdbc/boss";
         String a = "10";
         ApiContext.bind(name, a);
