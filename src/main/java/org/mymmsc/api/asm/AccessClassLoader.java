@@ -4,6 +4,9 @@ import java.lang.reflect.Method;
 import java.security.ProtectionDomain;
 import java.util.ArrayList;
 
+/**
+ *
+ */
 class AccessClassLoader extends ClassLoader {
     static private final ArrayList<AccessClassLoader> accessClassLoaders = new ArrayList<AccessClassLoader>();
 
