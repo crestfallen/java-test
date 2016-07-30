@@ -1,7 +1,6 @@
 package test.mymmsc.api.context;
 
 public class FileUploadResponseBean {
-
     private String type = null;
     private String filetype = null;
     private String fileurl = null;
