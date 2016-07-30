@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package test.mymmsc.api.assembly;
 
@@ -7,17 +7,16 @@ import org.mymmsc.api.io.ImageApi;
 
 /**
  * @author WangFeng
- * 
  */
 public class TestImageApi {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		String src = "C:/temp/wangfeng.jpg";
-		/*
-		 * // 1-缩放图像： // 方法一：按比例缩放 ImageApi.scale(src,
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        String src = "C:/temp/wangfeng.jpg";
+        /*
+         * // 1-缩放图像： // 方法一：按比例缩放 ImageApi.scale(src,
 		 * "c:/temp/wangfeng_scale.jpg", 2, true);// 测试OK // 方法二：按高度和宽度缩放
 		 * ImageApi.scale2(src, "c:/temp/wangfeng_scale2.jpg", 500, 300,
 		 * true);// 测试OK
@@ -30,9 +29,9 @@ public class TestImageApi {
 		 * // 3-图像类型转换： ImageApi.convert(src, "GIF",
 		 * "c:/temp/wangfeng_convert.gif");// 测试OK
 		 */
-		// 4-彩色转黑白：
-		ImageApi.bw(src, "c:/temp/wangfeng_gray.jpg");// 测试OK
-		/*
+        // 4-彩色转黑白：
+        ImageApi.bw(src, "c:/temp/wangfeng_gray.jpg");// 测试OK
+        /*
 		 * // 5-给图片添加文字水印： // 方法一： ImageApi.pressText("我是水印文字", src,
 		 * "c:/temp/wangfeng_pressText.jpg", "宋体", Font.BOLD, Color.white, 80,
 		 * 0, 0, 0.5f);// 测试OK // 方法二： ImageApi.pressText2("我也是水印文字", src,
@@ -42,6 +41,6 @@ public class TestImageApi {
 		 * // 6-给图片添加图片水印： ImageApi.pressImage("e:/abc2.jpg", src,
 		 * "c:/temp/wangfeng_pressImage.jpg", 0, 0, 0.5f);// 测试OK
 		 */
-	}
+    }
 
 }

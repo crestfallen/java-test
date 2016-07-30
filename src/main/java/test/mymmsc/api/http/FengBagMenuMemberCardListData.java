@@ -1,41 +1,41 @@
 package test.mymmsc.api.http;
 
 public class FengBagMenuMemberCardListData {
-	private String id;
-	private String name;
-	private String typeid;
-	private String picUrl;
+    private String id;
+    private String name;
+    private String typeid;
+    private String picUrl;
 
-	public String getTypeid() {
-		return typeid;
-	}
+    public String getTypeid() {
+        return typeid;
+    }
 
-	public void setTypeid(String typeid) {
-		this.typeid = typeid;
-	}
+    public void setTypeid(String typeid) {
+        this.typeid = typeid;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getPicUrl() {
-		return picUrl;
-	}
+    public String getPicUrl() {
+        return picUrl;
+    }
 
-	public void setPicUrl(String picUrl) {
-		this.picUrl = picUrl;
-	}
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
 
 }

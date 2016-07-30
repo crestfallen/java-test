@@ -22,32 +22,32 @@ import org.mymmsc.api.io.SocketPoolEx;
  * <p>
  * Title: MyMMSC SocketPool
  * </p>
- * 
+ * <p>
  * <p>
  * Description: SocketPool of MyMMSC
  * </p>
- * 
+ * <p>
  * <p>
  * Copyright: Copyright (c) 2000-2009 mymmsc.org
  * </p>
- * 
+ * <p>
  * <p>
  * Company: MyMMSC Software Foundation (MSF)
  * </p>
- * 
+ *
  * @author WangFeng
  * @version 6.3.9
  */
 public class TestSocketPool {
 
-	public static void main(String[] args) {
-		SocketPoolEx MySocket = new SocketPoolEx();
-		MySocket.Init("127.0.0.1", 7890, 1, 30);
-		MySocket.Connect(30);
-		String content = "hello";
-		MySocket.Send(content.getBytes(), 0, content.length());
-		byte[] recvData = MySocket.Recv(100);
-		String line = new String(recvData, 0, recvData.length);
-		System.out.println(line);
-	}
+    public static void main(String[] args) {
+        SocketPoolEx MySocket = new SocketPoolEx();
+        MySocket.Init("127.0.0.1", 7890, 1, 30);
+        MySocket.Connect(30);
+        String content = "hello";
+        MySocket.Send(content.getBytes(), 0, content.length());
+        byte[] recvData = MySocket.Recv(100);
+        String line = new String(recvData, 0, recvData.length);
+        System.out.println(line);
+    }
 }

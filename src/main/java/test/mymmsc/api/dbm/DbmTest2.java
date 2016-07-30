@@ -1,6 +1,6 @@
 /**
- * @(#)DbmTest2.java	6.3.9 09/10/02
- *
+ * @(#)DbmTest2.java 6.3.9 09/10/02
+ * <p>
  * Copyright 2000-2010 MyMMSC Software Foundation (MSF), Inc. All rights reserved.
  * MyMMSC PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
@@ -14,13 +14,13 @@ import junit.framework.TestCase;
  * @since mymmsc-test 6.3.9
  */
 public class DbmTest2 extends TestCase {
-	private StorageHashTableTest shtt = new StorageHashTableTest("2", 10000);
+    private StorageHashTableTest shtt = new StorageHashTableTest("2", 10000);
 
-	public DbmTest2(String name) {
-		super(name);
-	}
+    public DbmTest2(String name) {
+        super(name);
+    }
 
-	public void testIt() throws Exception {
-		shtt.testIt();
-	}
+    public void testIt() throws Exception {
+        shtt.testIt();
+    }
 }

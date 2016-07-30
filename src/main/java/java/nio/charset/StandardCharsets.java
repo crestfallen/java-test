@@ -34,9 +34,6 @@ package java.nio.charset;
  */
 public final class StandardCharsets {
 
-    private StandardCharsets() {
-        throw new AssertionError("No java.nio.charset.StandardCharsets instances for you!");
-    }
     /**
      * Seven-bit ASCII, a.k.a. ISO646-US, a.k.a. the Basic Latin block of the
      * Unicode character set
@@ -63,4 +60,8 @@ public final class StandardCharsets {
      * optional byte-order mark
      */
     public static final Charset UTF_16 = Charset.forName("UTF-16");
+
+    private StandardCharsets() {
+        throw new AssertionError("No java.nio.charset.StandardCharsets instances for you!");
+    }
 }
