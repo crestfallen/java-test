@@ -21,6 +21,7 @@ public class DbmTest2 extends TestCase {
     }
 
     public void testIt() throws Exception {
+
         shtt.testIt();
     }
 }
