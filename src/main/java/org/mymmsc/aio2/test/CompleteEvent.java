@@ -9,6 +9,7 @@ package org.mymmsc.aio2.test;
 import java.nio.channels.SelectionKey;
 
 public abstract class CompleteEvent extends SelectionKey {
+
     public final static int IOCP_UNKNOWN = 0x0000;
     public final static int IOCP_ACCEPT = 0x0001;
     public final static int IOCP_CONNECT = 0x0002;
