@@ -109,5 +109,4 @@ public class SslSocketFactory extends SocketFactory {
         }
         return sslFactory;
     }
-
 }
