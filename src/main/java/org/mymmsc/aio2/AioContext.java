@@ -19,7 +19,6 @@ import java.nio.channels.SocketChannel;
  */
 public abstract class AioContext {
     public int length = 0;
-    //private SelectionKey m_event = null;
     private SocketChannel m_channel = null;
     private int m_timeout = 0;
     private long m_startTime = 0;
