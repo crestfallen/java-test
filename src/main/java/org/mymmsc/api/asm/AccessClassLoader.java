@@ -45,8 +45,9 @@ class AccessClassLoader extends ClassLoader {
             return FieldAccess.class;
         if (name.equals(MethodAccess.class.getName()))
             return MethodAccess.class;
-        if (name.equals(ConstructorAccess.class.getName()))
+        if (name.equals(ConstructorAccess.class.getName())) {
             return ConstructorAccess.class;
+        }
         // All other classes come from the classloader that loaded the type we
         // are accessing.
         return super.loadClass(name, resolve);

@@ -32,7 +32,7 @@ public class TestImageApi {
         // 4-彩色转黑白：
         ImageApi.bw(src, "c:/temp/wangfeng_gray.jpg");// 测试OK
         /*
-		 * // 5-给图片添加文字水印： // 方法一： ImageApi.pressText("我是水印文字", src,
+         * // 5-给图片添加文字水印： // 方法一： ImageApi.pressText("我是水印文字", src,
 		 * "c:/temp/wangfeng_pressText.jpg", "宋体", Font.BOLD, Color.white, 80,
 		 * 0, 0, 0.5f);// 测试OK // 方法二： ImageApi.pressText2("我也是水印文字", src,
 		 * "c:/temp/wangfeng_pressText2.jpg", "黑体", 36, Color.white, 80, 0, 0,

@@ -13,7 +13,6 @@ import org.mymmsc.api.context.JsonAdapter;
  *
  * @author WangFeng(wangfeng@yeah.net)
  * @version 6.3.12 2012/05/11
- * @since mymmsc-api 6.3.12
  * @since mymmsc-api 6.3.9
  */
 public class TestJsonAdapter {
