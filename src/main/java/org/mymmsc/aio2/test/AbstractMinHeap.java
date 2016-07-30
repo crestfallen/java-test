@@ -23,5 +23,4 @@ public abstract class AbstractMinHeap<T> {
     public void setIndex(int index) {
         this.m_index = index;
     }
-
 }
