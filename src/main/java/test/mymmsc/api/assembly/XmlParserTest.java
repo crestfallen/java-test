@@ -20,7 +20,6 @@ import javax.xml.xpath.XPathExpressionException;
  * @since mymmsc-test 6.3.9
  */
 public class XmlParserTest {
-
     /**
      * TestXerce
      */
