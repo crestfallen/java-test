@@ -53,6 +53,7 @@ class BogusTrustManagerFactory extends TrustManagerFactorySpi {
     static final TrustManager[] X509_MANAGERS = new TrustManager[]{X509};
 
     public BogusTrustManagerFactory() {
+        //
     }
 
     @Override
