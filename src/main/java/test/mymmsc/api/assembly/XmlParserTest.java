@@ -58,8 +58,6 @@ public class XmlParserTest {
             System.out.println(node.getNodeValue());
 
         }
-        // NodeSet nodes = (NodeSet) xpath.evaluate(expression, inputSource,
-        // XPathConstants.NODESET);
         System.out.println(nl.getLength());
 
     }
