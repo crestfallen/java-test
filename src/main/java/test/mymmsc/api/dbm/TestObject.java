@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class TestObject implements Serializable {
     private static final long serialVersionUID = 127140610913856720L;
+
     private String name = null;
     private int ago = 0;
 
