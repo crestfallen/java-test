@@ -46,6 +46,7 @@ public class TestSocketPool {
         MySocket.Connect(30);
         String content = "hello";
         MySocket.Send(content.getBytes(), 0, content.length());
+
         byte[] recvData = MySocket.Recv(100);
         String line = new String(recvData, 0, recvData.length);
         System.out.println(line);
