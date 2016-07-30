@@ -33,6 +33,7 @@ public class XmlParserTest {
      * @throws XPathExpressionException
      */
     public static void main(String[] args) {
+
         String expression = "//dbcp/*";
         String systemid = "~/temp/iptable.conf";
         XmlParser xp = new XmlParser(systemid);
