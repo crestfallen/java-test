@@ -13,7 +13,6 @@ package org.mymmsc.aio2.test;
  * @since mymmsc-api 6.3.9
  */
 public abstract class AbstractMinHeap<T> {
-
     private int m_index = -1;
 
     public int getIndex() {
