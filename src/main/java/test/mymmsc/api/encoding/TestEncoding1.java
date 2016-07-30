@@ -27,7 +27,6 @@ public class TestEncoding1 {
      * @param args
      */
     public static void main(String[] args) {
-
         String s = "123";
         s = "\u65e9\u81ea\u4e60";
         s = "\\\\u65e9\\\\u81ea\\\\u4e60";
