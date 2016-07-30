@@ -12,10 +12,12 @@ public final class DEFINES {
      * 超时, 默认30秒
      */
     public static final int TIMEOUT = 30 * 1000;
+
     /**
      * 默认缓冲区大小为1024字节
      */
     public static final int BUFFERSIZE = 1024 * 1024;
+
     /**
      * 默认字符集
      */
