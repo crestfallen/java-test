@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FengBagMenuMemberCardList {
+
     private List<AreaBean> arealist = new ArrayList<AreaBean>();
 
     private List<FengBagMenuMemberCardListData> datalist = new ArrayList<FengBagMenuMemberCardListData>();
