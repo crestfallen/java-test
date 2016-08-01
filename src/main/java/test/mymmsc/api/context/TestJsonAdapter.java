@@ -7,6 +7,7 @@
 package test.mymmsc.api.context;
 
 import org.mymmsc.api.context.JsonAdapter;
+import test.mymmsc.api.http.ZDTest;
 
 /**
  * 测试JSON解析器
@@ -21,6 +22,11 @@ public class TestJsonAdapter {
      * @param args
      */
     public static void main(String[] args) {
+
+        ZDTest t = new ZDTest();
+        t.setCoupon_info_pic(null);
+
+        String str = JsonAdapter.get(t, false);
         Response<Test> data = new Response<Test>();
         Test t1 = new Test();
         t1.setAmount("1");
