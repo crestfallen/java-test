@@ -22,7 +22,7 @@ public class TestO3String {
         HashMap<String, String> list = new HashMap<String, String>();
         int k = 0;
         for (int i = 0; i < iCount; i++) {
-            s = Api.o3String(8);
+            s = Api.o3String(16);
             if (list.containsKey(s)) {
                 k += 1;
             } else {
