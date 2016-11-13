@@ -18,6 +18,9 @@ public class ForReadClass {
     public ForReadClass() {
     }
 
+    public String test(String str, int count) {
+        return str + count;
+    }
     public void methodA() {
         System.out.println(intField);
     }
